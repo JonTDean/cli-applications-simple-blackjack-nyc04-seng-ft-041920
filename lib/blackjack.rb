@@ -65,11 +65,14 @@ end
 
 def runner
   currentHand = []
-  welcome
   currentHand << initial_round
-  until currentHand[0].to_i > 21
-    currentHand.insert(0,hit?(currentHand[0]))
+  
+  print welcome
+  
+  while currentHand[0].to_i < 21
+    currentHand.insert(0, hit?(currentHand[0]))
     display_card_total(currentHand[0].to_i)
   end
-  end_game(currentHand[0])
+  
+  return end_game(currentHand[0])
 end
